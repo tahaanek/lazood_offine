@@ -1,4 +1,4 @@
-# lazood offine application
+# lazood offline application
 
 project Lazood Offline App <br />
 version 1.0.19 <br />

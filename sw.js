@@ -13,8 +13,8 @@ const cacheData = [
     '/img/testimonials-2.jpg',
     '/img/testimonials-3.jpg',
     '/index.html',
-    '/js/main.js',
     '/about.html',
+    '/js/main.js'
 ];
 // const cart = 
 // {
@@ -69,18 +69,16 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
     console.log('service fetching');
     e.respondWith(
-        fetch(e.request)
-          .then(res => {
-            const resClone = res.clone();
-            caches
-            .open(cacheApp)
-            .then(cache => {
-                cache.put(e.request, resClone);
+        caches.match(e.request).then((r) => {
+              console.log('[Service Worker] Fetching resource: '+e.request.url);
+          return r || fetch(e.request).then((response) => {
+                    return caches.open(cacheApp).then((cache) => {
+              console.log('[Service Worker] Caching new resource: '+e.request.url);
+              cache.put(e.request, response.clone());
+              return response;
             });
-            return res;
-          })
-        .catch(() => { 
-            caches.match(e.request).then(res => res) ;
+          });
         })
-      );    
+      );
+  
   });

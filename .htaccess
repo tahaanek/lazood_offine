@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^$ index.html [L,QSA]
+RewriteRule ^about$ about.html [L,QSA]
+RewriteRule ^contact$ contact.html [L,QSA]

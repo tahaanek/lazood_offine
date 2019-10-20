@@ -1,5 +1,6 @@
 const cacheApp = 'o-app-v1';
 const cacheData = [
+    '.htaccess',
     'vendor/bootstrap/css/bootstrap.min.css',
     'vendor/fontawesome-free/css/all.min.css',
     'vendor/simple-line-icons/css/simple-line-icons.css',

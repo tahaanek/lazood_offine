@@ -3,7 +3,7 @@ if('serviceWorker' in navigator){
   navigator.serviceWorker
   .register('./sw.js')
   .then(reg => console.log('service registered'))
-  .catch(err => console.log('service error : ${error}'));
+  .catch(err => console.log('service error :'+err));
 });
 
 if('localStorage' in navigator){
